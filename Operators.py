@@ -57,4 +57,8 @@ def SupReverse(l,A,G,t):
     for i in range(1,9):
         L.append(tensor(rp[i],K[i-1]*K[i].dag()))
     return L 
+
+def Projection(N,i):
+    a = tensor(I,I,I,Kspace(N)[i]*Kspace(N)[i].dag())
+    return a
            

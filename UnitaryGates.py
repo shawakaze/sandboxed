@@ -15,7 +15,9 @@ def Zgate():
 
 def Hadamardgate():
     return (1/sqrt(2))*Qobj(matrix([[1,1],[1,-1]]))
-
+"""
+    The next gate is not unitary
+"""
 def R(G,t):
     return cos(t/2.)*I - i*sin(t/2)*G
 

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a375ee9c-d545-4f4a-97fc-1a7085388ba7</ProjectGuid>
     <ProjectHome>..\..\</ProjectHome>
-    <StartupFile>BoundedOperator.py</StartupFile>
+    <StartupFile>LinSysAlgoGates-beta.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,10 +24,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BoundedOperator.py" />
+    <Compile Include="MyOriginalBoundedOperators.py" />
     <Compile Include="Kspace.py" />
-    <Compile Include="LinSysAlgoGates.py" />
-    <Compile Include="basicops.py" />
+    <Compile Include="LinSysAlgoGates-beta.py" />
+    <Compile Include="UnitaryGates.py" />
     <Compile Include="Operators.py" />
     <Compile Include="testapp.py" />
   </ItemGroup>
