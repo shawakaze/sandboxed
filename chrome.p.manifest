@@ -1,0 +1,12 @@
+# #if MODE == "dev"
+content firefoxextextension 1 content/
+skin firefoxextextension 1 classic/1.0 skin/
+locale firefoxextextension 1 en-US locale/en-US/
+
+# #else
+content firefoxextextension 1 jar:firefoxextextension 1.jar!/content/
+skin firefoxextextension 1 classic/1.0 jar:firefoxextextension 1.jar!/skin/
+locale firefoxextextension 1 en-US jar:firefoxextextension 1.jar!/locale/en-US/
+# #endif
+
+overlay chrome://browser/content/browser.xul chrome://firefoxextextension 1/content/firefoxextextension 1_overlay.xul

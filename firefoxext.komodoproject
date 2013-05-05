@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="0df8a35c-15a1-4814-9ee1-1837851e34de" kpf_version="5" name="firefoxext.komodoproject">
+<preference-set idref="0df8a35c-15a1-4814-9ee1-1837851e34de" id="project" preftype="project">
+  <boolean id="configured">1</boolean>
+  <string id="koextgen.target">firefox</string>
+</preference-set>
+</project>
