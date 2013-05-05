@@ -8,14 +8,12 @@ K = Kspace(9)
 Y = Ygate()
 w = 0.8
 l = 1 - w
-
+pi = np.pi
 
 ##############################################################
 v0 = basis(2,0)
 v1 = basis(2,1)
-A = matrix([[1,2],[2,1]])
 b = v1
-t = np.pi
 # density matrix     ############################
 p0 = tensor(v1*v1.dag(),v0*v0.dag(),b*b.dag())
 p0 = tensor(p0,K[0]*K[0].dag())
@@ -23,8 +21,8 @@ P = [p0]
 
 
 ############ M operators ##################################################
-Kf = SupForward(w,A,Y,t/2.)
-Kb = SupReverse(w,A,Y,t/2.)
+Kf = SupForward(w,Y,pi/2.)
+Kb = SupReverse(w,Y,pi/2.)
 
 exit_status = False
 
