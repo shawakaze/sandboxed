@@ -1,6 +1,6 @@
 import numpy as np
 from qutip import *
-from UnitaryGates import *
+from HilbertSpace import *
 from Operators import *
 from Kspace import *
 

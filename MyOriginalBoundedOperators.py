@@ -91,7 +91,7 @@ def MultipleIterations(N,n): # n represents number of iterations to be considere
 def Prb(N,iterations,Itermatrix,site):  
     return (MultipleIterations(N,iterations)[Itermatrix].ptrace(1)*Projection(N,site)).tr()
 
-n = 2
+n = 6
 Iterations = n + 1   
 Itermatrix = n
 
@@ -114,4 +114,4 @@ def draw():
     print sum(y)
 
 draw()
-print Prb(N,Iterations,Itermatrix,1)
+print Prb(N,Iterations,Itermatrix,4)

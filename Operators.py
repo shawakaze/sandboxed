@@ -1,5 +1,5 @@
 from qutip import *
-from UnitaryGates import *
+from HilbertSpace import *
 from cmath import sqrt
 from Kspace import Kspace
 
@@ -28,31 +28,47 @@ def Bounds(A,G,t):
     B99 = tensor(I,I,I)
     return [B11,B12,B23,B34,B45,B56,B67,B78,B89,B99]
 
-def ForwardPropagation(w,A,G,t):
-    w = sqrt(w)
+def ForwardPropagation(A,G,t):
     L = []
     for i in range(1,10):
-        L.append(w*Bounds(A,G,t)[i])
+        L.append(Bounds(A,G,t)[i])
     return L
 
-def ReversePropagation(l,A,G,t):
-    l = sqrt(l)
+def ReversePropagation(A,G,t):   
     L = []
     for i in range(0,9):
-        L.append(l*Bounds(A,G,t)[i])
+        L.append(Bounds(A,G,t)[i])
     return L
 
 def SupForward(w,A,G,t):
     L = []
-    fp = ForwardPropagation(w,A,G,t)
+    w = sqrt(w)
+    fp = ForwardPropagation(A,G,t)
+    for i in range(8):
+        L.append(tensor(w*fp[i],K[i+1]*K[i].dag()))
+    L.append(tensor(w*fp[len(fp)-1],K[8]*K[8].dag()))
+    return L
+
+def SupReverse(l,A,G,t):
+    L = []
+    l = sqrt(l)
+    rp = ReversePropagation(A,G,t)
+    L.append(tensor(l*rp[0],K[0]*K[0].dag()))
+    for i in range(1,9):
+        L.append(tensor(l*rp[i],K[i-1]*K[i].dag()))
+    return L 
+
+def PureForward(A,G,t):
+    L = []
+    fp = ForwardPropagation(A,G,t)
     for i in range(8):
         L.append(tensor(fp[i],K[i+1]*K[i].dag()))
     L.append(tensor(fp[len(fp)-1],K[8]*K[8].dag()))
     return L
 
-def SupReverse(l,A,G,t):
+def PureReverse(A,G,t):
     L = []
-    rp = ReversePropagation(l,A,G,t)
+    rp = ReversePropagation(A,G,t)
     L.append(tensor(rp[0],K[0]*K[0].dag()))
     for i in range(1,9):
         L.append(tensor(rp[i],K[i-1]*K[i].dag()))
